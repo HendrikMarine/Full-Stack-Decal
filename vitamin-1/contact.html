@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Guestbook form for the Steve Harrington tribute page." />
+    <meta name="theme-color" content="#8b0000" />
+    <title>Steve Harrington Guestbook</title>
+  </head>
+  <body>
+    <h1>Guestbook</h1>
+    <p>Leave a note for fellow Steve Harrington fans.</p>
+
+    <form>
+      <label for="name">Name</label><br />
+      <input type="text" id="name" name="name" /><br /><br />
+
+      <label for="email">Email</label><br />
+      <input type="email" id="email" name="email" /><br /><br />
+
+      <label for="season">Favorite season</label><br />
+      <select id="season" name="season">
+        <option value="1">Season 1</option>
+        <option value="2">Season 2</option>
+        <option value="3">Season 3</option>
+        <option value="4">Season 4</option>
+        <option value="5">Season 5</option>
+      </select><br /><br />
+
+      <label for="message">Message</label><br />
+      <textarea id="message" name="message" rows="4" cols="40"></textarea><br /><br />
+
+      <input type="submit" value="Submit" />
+    </form>
+
+    <p><a href="index.html">Back to the tribute page</a></p>
+  </body>
+</html>

@@ -1,3 +1,7 @@
-# My Project
+# Full Stack DeCal
 
-This is my GitHub repo.
+CS 198-099, Fall 2026
+
+- `vitamin-1/` HTML and CSS
+- `vitamin-2/`
+- `projects/`
