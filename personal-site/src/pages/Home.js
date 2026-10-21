@@ -39,9 +39,6 @@ function Home() {
     return () => clearTimeout(timer);
   }, [i]);
 
-  return () => clearInterval(t);
-  }, [i]);
-
   return (
     <div className="page">
       <section style={{ minHeight: "60vh", display: "flex", flexDirection: "column", justifyContent: "center" }}>
