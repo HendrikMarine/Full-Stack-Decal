@@ -1,0 +1,36 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 24px;
+  min-height: 36px;
+  border-bottom: 1px solid #cccccc;
+}
+
+.nav-link {
+  margin-right: 16px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.navbar-light {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.navbar-light .nav-link {
+  color: #333333;
+}
+
+.navbar-dark {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.navbar-dark .nav-link {
+  color: #ffffff;
+}
