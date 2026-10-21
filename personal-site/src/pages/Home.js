@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Reveal from "../components/Reveal";
 import Counter from "../components/Counter";
 
-const words = ["runner", "math student", "data person", "builder", "economist in training"];
+const words = ["runner", "math student", "data person", "writer", "builder", "economist in training"];
 
 function Home() {
   const [i, setI] = useState(0);
@@ -57,6 +57,8 @@ function Home() {
           <Link to="/running" className="btn">Running lab</Link>
           <Link to="/math" className="btn">Math lab</Link>
           <Link to="/data" className="btn">Data lab</Link>
+          <Link to="/portfolio" className="btn">Portfolio</Link>
+          <Link to="/writing" className="btn">Writing</Link>
         </div>
       </section>
 
@@ -87,7 +89,7 @@ function Home() {
           <div style={{ display: "flex", whiteSpace: "nowrap", animation: "marquee 18s linear infinite" }} className="mono">
             {[...Array(2)].map((_, r) => (
               <span key={r} style={{ paddingRight: 48, color: "var(--muted)" }}>
-                RUNNING · PHYSICAL ACTIVITY · MATHEMATICS · DATA · REAL ESTATE · ECONOMICS · BERKELEY · BUILDING ·&nbsp;
+                RUNNING · MATHEMATICS · DATA · ECONOMETRICS · REAL ESTATE · PORTFOLIO THEORY · CREATIVE WRITING · RESEARCH · BERKELEY ·&nbsp;
               </span>
             ))}
           </div>

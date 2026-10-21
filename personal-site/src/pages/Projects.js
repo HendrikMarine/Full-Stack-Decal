@@ -12,7 +12,7 @@ function Projects() {
     <div className="page">
       <div className="eyebrow">Projects</div>
       <h1>What I'm <span className="gradient-text">building</span></h1>
-      <p style={{ maxWidth: 640 }}>Filter by tag. Click a card for the full story; every project has its own route.</p>
+      <p style={{ maxWidth: 640 }}>Startups, research, and community. Filter by tag; every project has its own route.</p>
 
       <div className="btn-row" style={{ margin: "20px 0" }}>
         <button className={`btn small ${!filter ? "active" : ""}`} onClick={() => setFilter(null)}>All</button>

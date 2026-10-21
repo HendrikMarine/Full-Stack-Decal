@@ -9,6 +9,8 @@ const palettes = {
   "/math": ["#7c9cff", "#c084fc"],
   "/data": ["#4ef0c6", "#ffb454"],
   "/projects": ["#ff6b8a", "#7c9cff"],
+  "/portfolio": ["#4ef0c6", "#ffb454"],
+  "/writing": ["#c084fc", "#ff6b8a"],
   "/goals": ["#ffb454", "#4ef0c6"],
   "/contact": ["#c084fc", "#4ef0c6"],
 };

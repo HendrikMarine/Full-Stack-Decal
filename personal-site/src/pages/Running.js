@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
 import Reveal from "../components/Reveal";
+import profile from "../data/profile";
 
 const DISTANCES = { "5K": 5, "10K": 10, "Half": 21.0975, "Marathon": 42.195 };
 
@@ -49,7 +50,8 @@ function Running() {
       <div className="eyebrow">Running lab</div>
       <h1>Miles in, <span className="gradient-text">numbers out</span></h1>
       <p style={{ maxWidth: 640 }}>
-        Running is the hobby that got me into tracking things. These are the calculators I actually use.
+        Running is the hobby that got me into tracking things. These are the calculators I actually use.{" "}
+        <a href={profile.strava.url} target="_blank" rel="noreferrer" style={{ color: "var(--accent)" }}>Follow my runs on Strava ({profile.strava.name}) ↗</a>
       </p>
 
       {/* Animated track */}

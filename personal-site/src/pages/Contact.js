@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import profile from "../data/profile";
 
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", msg: "" });
@@ -10,7 +11,7 @@ function Contact() {
     if (!form.name || !form.email || !form.msg) return;
     // No backend here: open the user's mail client with the message prefilled.
     const body = encodeURIComponent(`${form.msg}\n\n– ${form.name} (${form.email})`);
-    window.location.href = `mailto:hendrik_marine@berkeley.edu?subject=${encodeURIComponent("Hi from your website")}&body=${body}`;
+    window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent("Hi from your website")}&body=${body}`;
     setSent(true);
   };
 
@@ -30,9 +31,9 @@ function Contact() {
         <div className="panel">
           <h3>Elsewhere</h3>
           <div style={{ display: "grid", gap: 10 }}>
-            <a className="btn" href="https://github.com/HendrikMarine" target="_blank" rel="noreferrer">GitHub ↗</a>
-            <a className="btn" href="mailto:hendrik_marine@berkeley.edu">Email ↗</a>
-            <a className="btn" href="https://www.strava.com" target="_blank" rel="noreferrer">Strava ↗</a>
+            <a className="btn" href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a className="btn" href={`mailto:${profile.email}`}>Email ↗</a>
+            <a className="btn" href={profile.strava.url} target="_blank" rel="noreferrer">Strava · {profile.strava.name} ↗</a>
           </div>
         </div>
       </div>

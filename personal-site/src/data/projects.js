@@ -4,6 +4,7 @@ const projects = [
     slug: "real-estate-acquisition-tool",
     name: "Real Estate Buy/Sell Acquisition Tool",
     status: "Building now",
+    kind: "Startup",
     tags: ["Real estate", "Underwriting", "AI", "Product"],
     summary:
       "A tool that helps acquisition teams decide whether to buy or sell a property faster, by pulling the underwriting work into one place.",
@@ -15,22 +16,54 @@ const projects = [
     stack: ["React", "Node", "Python", "LLM APIs", "Financial modeling"],
   },
   {
+    slug: "eurap-economics-ai",
+    name: "E-URAP: Economics × AI",
+    status: "Research · Fall 2026",
+    kind: "Research",
+    tags: ["Investment research", "Econometrics", "Economics", "AI", "Berkeley"],
+    summary:
+      "Undergraduate RA in the Berkeley Economics department's E-URAP program, on Applied Micro, Experiments, and Political Economy with AI.",
+    details: [
+      "Got in through a research exercise replicating Bai & Jia (2016, Econometrica), \"Elite Recruitment and Political Stability\": a plain-language summary, a literature review, and a Python (pyfixest) replication of the paper's main tables that matched to three decimals.",
+      "The audit found something real: the published standard errors in one table were unclustered, and under prefecture clustering the instrument goes weak and the 2SLS estimates stop being significant at 5%.",
+      "The RA work itself (~10 hrs/week): empirical analysis, data construction, literature research, experiment design, and building research tools with AI agents.",
+    ],
+    stack: ["Python", "pyfixest", "Econometrics", "2SLS / IV", "Literature review"],
+  },
+  {
+    slug: "ssrp-irle",
+    name: "SSRP at IRLE: Merit at Professional Service Firms",
+    status: "Research · 2026-27",
+    kind: "Research",
+    tags: ["Investment research", "Labor", "Data", "Sociology", "Berkeley"],
+    summary:
+      "Social Sciences Research Pathways mentee at Berkeley's Institute for Research on Labor and Employment, supporting a dissertation on how merit gets defined and evaluated at professional service firms.",
+    details: [
+      "I applied with interests in poverty and income inequality, welfare economics, and why US infrastructure looks so different from Europe's, and was matched with a sociology PhD candidate working on political economy and organizations.",
+      "The work is empirical: a Revelio Labs workforce-data analysis (through WRDS) plus weekly research check-ins for the full academic year.",
+    ],
+    stack: ["Python", "WRDS", "Revelio Labs data", "Research design"],
+  },
+  {
     slug: "voyant-capital",
     name: "Voyant Capital",
     status: "Ongoing",
+    kind: "Research",
     tags: ["Investment research", "Markets", "Writing"],
     summary:
-      "A student-run investment research operation I co-founded. We write theses, build models, and argue about them.",
+      "A student-run investment research operation I co-founded. We write institutional-style theses, build models, and argue about them.",
     details: [
-      "I work as an analyst: building out research on companies and themes, keeping a portfolio of theses, and learning how to be wrong in public with good reasoning.",
-      "It's where my interest in data and markets overlap most directly.",
+      "I work as an analyst. Theses so far include a private credit stress thesis (with CLO tranche stress mapping and a three-factor stress model), a Japan normalization thesis, and a consumer auto credit thesis.",
+      "On the quant side: a Monday Effect study that I designed and ran end to end, a congressional financial-disclosure surveillance pipeline in Python and SQLite, and a from-scratch options framework built around IV-HV z-score screening and Breeden-Litzenberger density extraction.",
+      "The Portfolio page on this site shows how I think about the book: mean-variance utility, not just returns.",
     ],
-    stack: ["Excel", "Python", "Valuation", "Research writing"],
+    stack: ["Python", "SQLite", "Excel", "Valuation", "Options", "Research writing"],
   },
   {
     slug: "startup-at-cal",
     name: "Startup at Cal",
     status: "Co-founder",
+    kind: "Community",
     tags: ["Community", "Startups", "Berkeley"],
     summary:
       "A student startup club where people bring ideas and work on them together in weekly working sessions.",
@@ -43,6 +76,7 @@ const projects = [
     slug: "central-valley-club",
     name: "Central Valley Club",
     status: "Founder",
+    kind: "Community",
     tags: ["Community", "Berkeley", "Access"],
     summary:
       "A community for Berkeley students from California's Central Valley, focused on connecting low-income and underserved Valley students with each other and with campus resources.",
@@ -55,11 +89,12 @@ const projects = [
     slug: "this-website",
     name: "This Website",
     status: "Shipped",
+    kind: "Code",
     tags: ["React", "Router", "Canvas", "Design"],
     summary:
-      "The site you're on. React with React Router, a canvas particle field that follows your cursor, and interactive widgets for running, math, and data.",
+      "The site you're on. React with React Router, a canvas particle field that follows your cursor, and interactive labs for running, math, data, and portfolio theory.",
     details: [
-      "Built for the Full Stack DeCal at Berkeley. Every page has its own route, the Projects section has nested routes per project, and every animation is plain CSS or canvas with no animation libraries.",
+      "Built for the Full Stack DeCal at Berkeley. Every page has its own route, Projects and Writing have nested routes per entry, and every animation is plain CSS or canvas with no animation libraries.",
     ],
     stack: ["React", "React Router", "Canvas API", "CSS"],
   },
