@@ -46,7 +46,8 @@ function Portfolio() {
       </div>
 
       <p style={{ maxWidth: 720, fontSize: "0.9rem" }}>
-        The actual numbers for my book stay private. The sliders below start at illustrative values; the framework is the real part.
+        My own account numbers stay private. The sliders start at the Monte Carlo output for Voyant Capital's convergence thesis
+        (mean 16.4%, σ ≈ 17.7% implied by the simulation's 10th and 90th percentiles), so the framework runs on real research numbers.
       </p>
 
       <div className="grid" style={{ gridTemplateColumns: "2fr 3fr", gap: 20 }}>
@@ -102,6 +103,22 @@ function Portfolio() {
       </div>
 
       <div className="divider" />
+      <Reveal>
+        <div className="panel" style={{ marginBottom: 20 }}>
+          <div className="eyebrow">What the Monte Carlo says</div>
+          <p style={{ fontSize: "0.9rem", marginTop: 0 }}>
+            Independent simulation of Voyant's three-legged convergence trade. It confirmed the base case and exposed the tail we had understated, which is exactly why the σ² term in U exists.
+          </p>
+          <div className="grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 14 }}>
+            {base.monteCarlo.map((m) => (
+              <div key={m.label} className="stat">
+                <span className="value" style={{ fontSize: "1.3rem", color: m.label.startsWith("P(loss") || m.label.startsWith("5th") ? "var(--danger)" : "var(--text)" }}>{m.value}</span>
+                <span className="label">{m.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
       <div className="grid grid-2">
         <Reveal>
           <div className="panel">

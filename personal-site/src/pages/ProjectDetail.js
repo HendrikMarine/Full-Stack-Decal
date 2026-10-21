@@ -28,6 +28,20 @@ function ProjectDetail() {
       <p style={{ fontSize: "1.15rem", maxWidth: 680 }}>{project.summary}</p>
       <div style={{ margin: "16px 0 32px" }}>{project.tags.map((t) => <span key={t} className="tag">{t}</span>)}</div>
 
+      {project.metrics && (
+        <div className="panel" style={{ marginBottom: 20 }}>
+          <div className="eyebrow">By the numbers</div>
+          <div className="grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: 14 }}>
+            {project.metrics.map((m) => (
+              <div key={m.label} className="stat">
+                <span className="value" style={{ fontSize: "1.25rem" }}>{m.value}</span>
+                <span className="label">{m.label}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div className="grid" style={{ gridTemplateColumns: "2fr 1fr", gap: 20 }}>
         <div className="panel">
           {project.details.map((d, i) => <p key={i} style={{ color: "var(--text)", fontSize: "1.02rem" }}>{d}</p>)}
