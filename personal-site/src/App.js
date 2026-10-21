@@ -13,7 +13,6 @@ import ProjectDetail from "./pages/ProjectDetail";
 import Goals from "./pages/Goals";
 import Portfolio from "./pages/Portfolio";
 import Writing from "./pages/Writing";
-import WritingPiece from "./pages/WritingPiece";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -44,7 +43,6 @@ function App() {
           <Route path="/projects/:slug" element={<ProjectDetail />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/writing" element={<Writing />} />
-          <Route path="/writing/:slug" element={<WritingPiece />} />
           <Route path="/goals" element={<Goals />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />

@@ -39,11 +39,15 @@ function Portfolio() {
       <div className="eyebrow">Market portfolio</div>
       <h1>Returns, priced for <span className="gradient-text">risk</span></h1>
       <p style={{ maxWidth: 720 }}>
-        I don't judge my book by raw return. I score it with mean-variance utility, so a point of volatility costs me something explicit:
+        I run a market portfolio and I don't judge it by raw return. I score it with mean-variance utility, so a point of volatility costs me something explicit:
       </p>
       <div className="panel" style={{ display: "inline-block", padding: "16px 28px", margin: "8px 0 24px" }}>
         <span className="mono" style={{ fontSize: "1.5rem" }}>U = E(r) − ½ · A · σ²</span>
       </div>
+
+      <p style={{ maxWidth: 720, fontSize: "0.9rem" }}>
+        The actual numbers for my book stay private. The sliders below start at illustrative values; the framework is the real part.
+      </p>
 
       <div className="grid" style={{ gridTemplateColumns: "2fr 3fr", gap: 20 }}>
         <Reveal>
@@ -55,17 +59,17 @@ function Portfolio() {
             <div className="field" style={{ marginTop: 10 }}><label style={{ textTransform: "none" }}>Risk-free rate r<sub>f</sub>: {pct(rf, 2)}</label><input type="range" min="0" max="0.08" step="0.0025" value={rf} onChange={(e) => setRf(+e.target.value)} /></div>
             <div className="divider" style={{ margin: "18px 0" }} />
             <div className="grid" style={{ gridTemplateColumns: "1fr 1fr", gap: 12 }}>
-              <div className="stat"><span className="value" style={{ color: U >= Ub ? "var(--accent)" : "var(--danger)" }}>{pct(U, 2)}</span><span className="label">my utility U</span></div>
+              <div className="stat"><span className="value" style={{ color: U >= Ub ? "var(--accent)" : "var(--danger)" }}>{pct(U, 2)}</span><span className="label">utility U</span></div>
               <div className="stat"><span className="value">{sharpe.toFixed(2)}</span><span className="label">Sharpe</span></div>
               <div className="stat"><span className="value" style={{ fontSize: "1.4rem" }}>{pct(Ub, 2)}</span><span className="label">benchmark U</span></div>
               <div className="stat"><span className="value" style={{ fontSize: "1.4rem" }}>{pct(Urf, 2)}</span><span className="label">cash U (= r<sub>f</sub>)</span></div>
             </div>
             <p style={{ fontSize: "0.85rem", marginTop: 14 }}>
               {U > Math.max(Ub, Urf)
-                ? `At A = ${A.toFixed(1)}, my portfolio beats both the benchmark and cash on a risk-adjusted basis.`
+                ? `At A = ${A.toFixed(1)}, this portfolio beats both the benchmark and cash on a risk-adjusted basis.`
                 : U > Urf
-                ? `At A = ${A.toFixed(1)}, my portfolio beats cash but the benchmark scores higher. Either cut σ or accept the ranking.`
-                : `At A = ${A.toFixed(1)}, I'd be better off in cash. The volatility penalty is eating the return.`}
+                ? `At A = ${A.toFixed(1)}, this portfolio beats cash but the benchmark scores higher. Either cut σ or accept the ranking.`
+                : `At A = ${A.toFixed(1)}, cash wins. The volatility penalty is eating the return.`}
             </p>
           </div>
         </Reveal>
@@ -88,10 +92,10 @@ function Portfolio() {
               <circle cx={sx(0)} cy={sy(rf)} r="5" fill="#9aa5bd" /><text x={sx(0) + 8} y={sy(rf) - 6} fill="#9aa5bd" fontSize="10">cash</text>
               <circle cx={sx(bench.volatility)} cy={sy(bench.expectedReturn)} r="6" fill="#ffb454" /><text x={sx(bench.volatility) + 9} y={sy(bench.expectedReturn) + 4} fill="#ffb454" fontSize="10">{bench.label}</text>
               <circle cx={sx(sigC)} cy={sy(erC)} r="5" fill="#7c9cff" /><text x={sx(sigC) - 9} y={sy(erC) + 20} fill="#7c9cff" fontSize="10" textAnchor="end">optimal mix (y*={yStar.toFixed(2)})</text>
-              <circle cx={sx(sig)} cy={sy(er)} r="8" fill="#4ef0c6" style={{ filter: "drop-shadow(0 0 8px #4ef0c6)", transition: "all 0.3s" }} /><text x={sx(sig) + 11} y={sy(er) - 8} fill="#4ef0c6" fontSize="11" fontWeight="600">me</text>
+              <circle cx={sx(sig)} cy={sy(er)} r="8" fill="#4ef0c6" style={{ filter: "drop-shadow(0 0 8px #4ef0c6)", transition: "all 0.3s" }} /><text x={sx(sig) + 11} y={sy(er) - 8} fill="#4ef0c6" fontSize="11" fontWeight="600">portfolio</text>
             </svg>
             <div style={{ fontSize: "0.8rem", color: "var(--muted)", padding: "8px 8px 4px" }}>
-              Green curve: every (σ, E(r)) I'd be indifferent to versus my portfolio. Grey: same for the benchmark. Dashed: capital allocation line through cash and my portfolio. Blue dot: the mix of my portfolio and cash that maximizes U at this A (y* = (E(r) − r<sub>f</sub>) / (Aσ²); U there = {pct(UC, 2)}).
+              Green curve: every (σ, E(r)) with the same utility as the portfolio. Grey: same for the benchmark. Dashed: capital allocation line through cash and the portfolio. Blue dot: the mix of portfolio and cash that maximizes U at this A (y* = (E(r) − r<sub>f</sub>) / (Aσ²); U there = {pct(UC, 2)}).
             </div>
           </div>
         </Reveal>
@@ -102,7 +106,7 @@ function Portfolio() {
         <Reveal>
           <div className="panel">
             <h3>Utility as risk aversion changes</h3>
-            <p style={{ fontSize: "0.85rem", marginTop: 0 }}>Where the lines cross is the A at which I'd switch to the benchmark.</p>
+            <p style={{ fontSize: "0.85rem", marginTop: 0 }}>Where the lines cross is the A at which the benchmark starts to win.</p>
             <svg viewBox="0 0 520 220" style={{ width: "100%", height: "auto" }}>
               {(() => {
                 const mine = uCurve(er, sig), b = uCurve(bench.expectedReturn, bench.volatility);
@@ -130,7 +134,7 @@ function Portfolio() {
             <div className="field"><label>Label</label><input value={bench.label} onChange={(e) => setBench({ ...bench, label: e.target.value })} /></div>
             <div className="field" style={{ marginTop: 10 }}><label style={{ textTransform: "none" }}>Benchmark E(r): {pct(bench.expectedReturn)}</label><input type="range" min="0" max="0.3" step="0.005" value={bench.expectedReturn} onChange={(e) => setBench({ ...bench, expectedReturn: +e.target.value })} /></div>
             <div className="field" style={{ marginTop: 10 }}><label style={{ textTransform: "none" }}>Benchmark σ: {pct(bench.volatility)}</label><input type="range" min="0.01" max="0.5" step="0.005" value={bench.volatility} onChange={(e) => setBench({ ...bench, volatility: +e.target.value })} /></div>
-            <div className="mono" style={{ fontSize: "0.85rem", color: "var(--muted)", marginTop: 16 }}>Benchmark Sharpe {sharpeB.toFixed(2)} vs mine {sharpe.toFixed(2)}</div>
+            <div className="mono" style={{ fontSize: "0.85rem", color: "var(--muted)", marginTop: 16 }}>Benchmark Sharpe {sharpeB.toFixed(2)} vs portfolio {sharpe.toFixed(2)}</div>
             <p style={{ fontSize: "0.85rem", marginTop: 14 }}>
               Why this framing: two portfolios with the same return are not equal if one got there with twice the variance. A is the price I put on that variance, and it's the one number here I can't estimate from data; I have to choose it.
             </p>

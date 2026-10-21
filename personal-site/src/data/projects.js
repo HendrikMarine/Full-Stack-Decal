@@ -55,7 +55,7 @@ const projects = [
     details: [
       "I work as an analyst. Theses so far include a private credit stress thesis (with CLO tranche stress mapping and a three-factor stress model), a Japan normalization thesis, and a consumer auto credit thesis.",
       "On the quant side: a Monday Effect study that I designed and ran end to end, a congressional financial-disclosure surveillance pipeline in Python and SQLite, and a from-scratch options framework built around IV-HV z-score screening and Breeden-Litzenberger density extraction.",
-      "The Portfolio page on this site shows how I think about the book: mean-variance utility, not just returns.",
+      "I track the book's performance against a mean-variance utility target rather than raw return. The Portfolio page shows the framework; the actual metrics stay internal to Voyant.",
     ],
     stack: ["Python", "SQLite", "Excel", "Valuation", "Options", "Research writing"],
   },
